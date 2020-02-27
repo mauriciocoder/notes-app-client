@@ -1,0 +1,8 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "notes-app-client",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "cordova": {}
+}
