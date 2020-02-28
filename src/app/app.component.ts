@@ -4,6 +4,10 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
+import Amplify from 'aws-amplify';
+import { environment } from './../environments/environment';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -20,6 +24,8 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
+      console.log('environment.aws = ', environment.aws)  // FIXME: remove
+      Amplify.configure(environment.aws);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

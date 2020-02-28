@@ -64,3 +64,10 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// The Angular CLI requires some changes in order to use AWS Amplify.
+// This is a requirement for Angular 6+.
+declare global {
+    interface Window { global: any; }
+}
+window.global = window;
