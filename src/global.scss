@@ -34,3 +34,19 @@
  */ 
  @import url('https://fonts.googleapis.com/css?family=Oxanium&display=swap');
 
+ * {
+    margin: 0;
+    padding: 0;
+    font-family: "Oxanium";
+    font-size: 16px;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a, a:link, a:visited, a:hover, a:active {
+    color: inherit;
+    text-decoration: inherit;
+    font-weight: inherit;
+  }
+
