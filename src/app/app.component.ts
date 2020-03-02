@@ -25,7 +25,31 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       console.log('environment.aws = ', environment.aws)  // FIXME: remove
-      Amplify.configure(environment.aws);
+      let amplifyConfig = {
+        Auth: {
+          mandatorySignIn: true,
+          region: environment.aws.cognito.REGION,
+          userPoolId: environment.aws.cognito.USER_POOL_ID,
+          identityPoolId: environment.aws.cognito.IDENTITY_POOL_ID,
+          userPoolWebClientId: environment.aws.cognito.APP_CLIENT_ID
+        },
+        Storage: {
+          region: environment.aws.s3.REGION,
+          bucket: environment.aws.s3.BUCKET,
+          identityPoolId: environment.aws.cognito.IDENTITY_POOL_ID
+        },
+        API: {
+          endpoints: [
+            {
+              name: "notes",
+              endpoint: environment.aws.apiGateway.URL,
+              region: environment.aws.apiGateway.REGION
+            },
+          ]
+        }
+      };
+      console.log('amplifyConfig = ', amplifyConfig)  // FIXME: remove
+      Amplify.configure(amplifyConfig);
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
