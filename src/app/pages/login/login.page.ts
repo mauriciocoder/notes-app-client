@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from './../../components/header/header.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Auth } from 'aws-amplify';
+import { Router } from '@angular/router';
+import { LoadingController } from '@ionic/angular';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { Auth } from 'aws-amplify';
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
 
-  constructor() {
+  constructor(private router: Router, private loadingController: LoadingController) {
   }
 
   ngOnInit() {
@@ -27,11 +29,16 @@ export class LoginPage implements OnInit {
 
   async onSubmit() {
     if (this.loginForm.valid) {
-      let email = this.loginForm.value.email
-      let password = this.loginForm.value.password
+      const loading = await this.loadingController.create({
+        message: 'Please wait...'
+      });
+      loading.present();
+      let email = this.loginForm.value.email;
+      let password = this.loginForm.value.password;
       try {
         await Auth.signIn(email, password);
-        alert("Logged in");
+        loading.dismiss();
+        this.router.navigate(['/']);
       } catch (e) {
         alert(e.message);
       }

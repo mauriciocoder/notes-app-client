@@ -1,11 +1,17 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar *ngIf="!user">
     <ion-title><a routerLink="/">Scratch</a></ion-title>
     <ion-buttons slot="secondary">
       <ion-button fill="solid" color="primary" routerLink="/signup">Signup</ion-button>
     </ion-buttons>
     <ion-buttons slot="primary">
       <ion-button fill="solid" color="primary" routerLink="/login">Login</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar *ngIf="user">
+    <ion-title>Hello {{user.username}}</ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid" color="primary" (click)="signOut()">Logout</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

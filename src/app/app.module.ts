@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Angular
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AmplifyService } from 'aws-amplify-angular';
 // pages
 import { HomePage } from './pages/home/home.page';
 import { NotFoundPage } from './pages/notfound/notfound.page';
@@ -37,7 +38,8 @@ import { HeaderComponent } from './components/header/header.component';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AmplifyService
   ],
   bootstrap: [AppComponent]
 })
