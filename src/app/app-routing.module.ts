@@ -3,12 +3,14 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomePage } from './pages/home/home.page';
 import { NotFoundPage } from './pages/notfound/notfound.page';
 import { LoginPage } from './pages/login/login.page';
+import { SignupPage } from './pages/signup/signup.page';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomePage },
   { path: 'login', component: LoginPage },
-  { path: '**', component: NotFoundPage }
+  { path: 'signup', component: SignupPage },
+  { path: '**', component: NotFoundPage }  
 ];
 
 @NgModule({

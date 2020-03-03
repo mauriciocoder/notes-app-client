@@ -16,6 +16,7 @@ import { AmplifyService } from 'aws-amplify-angular';
 import { HomePage } from './pages/home/home.page';
 import { NotFoundPage } from './pages/notfound/notfound.page';
 import { LoginPage } from './pages/login/login.page';
+import { SignupPage } from './pages/signup/signup.page';
 // components
 import { HeaderComponent } from './components/header/header.component';
 
@@ -25,7 +26,8 @@ import { HeaderComponent } from './components/header/header.component';
     HomePage,
     NotFoundPage,
     LoginPage,
-    HeaderComponent
+    HeaderComponent,
+    SignupPage
   ],
   entryComponents: [],
   imports: [

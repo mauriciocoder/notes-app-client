@@ -1,0 +1,69 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true" *ngIf="firstStep">
+  <div id="container">
+    <form [formGroup]="signupForm" (ngSubmit)="onSignupFormSubmit()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Signup</strong>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Full Name:</ion-label>
+              <ion-input type="text" formControlName="fullName"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Email:</ion-label>
+              <ion-input type="text" formControlName="email"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Password:</ion-label>
+              <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" type="submit">Confirm</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+<ion-content [fullscreen]="true" *ngIf="!firstStep">
+  <div id="container">
+    <form [formGroup]="confirmationCodeForm" (ngSubmit)="onConfirmationCodeFormSubmit()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Signup</strong>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="floating">Confirmation Code:</ion-label>
+              <ion-input type="text" formControlName="confirmationCode"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" type="submit">Confirm</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>

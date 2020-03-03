@@ -15,10 +15,12 @@ export class HeaderComponent {
     this.amplifyService.authStateChange$
       .subscribe(authState => {
         console.log('Auth state changed = ', authState);
-        if (!authState.user) {
-          this.user = null;
-        } else {
+        if (authState.state === 'signedIn') {
           this.user = authState.user;
+        }
+        if (authState.state === 'signedOut') {
+          console.log('Entrou aki!!');
+          this.user = null;
         }
       });
   }
