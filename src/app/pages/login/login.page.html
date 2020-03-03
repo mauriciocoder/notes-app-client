@@ -2,8 +2,12 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <strong>Login</strong>
       <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Login</strong>
+          </ion-col>
+        </ion-row>
         <ion-row>
           <ion-col>
             <ion-item>

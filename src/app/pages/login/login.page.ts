@@ -27,7 +27,6 @@ export class LoginPage implements OnInit {
 
   async onSubmit() {
     if (this.loginForm.valid) {
-      console.log('this.loginForm.value = ', this.loginForm.value)
       let email = this.loginForm.value.email
       let password = this.loginForm.value.password
       try {
