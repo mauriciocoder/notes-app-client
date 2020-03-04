@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   user: any
 
   constructor(private amplifyService: AmplifyService, private router: Router) {
@@ -17,12 +17,17 @@ export class HeaderComponent {
         console.log('Auth state changed = ', authState);
         if (authState.state === 'signedIn') {
           this.user = authState.user;
+          localStorage.setItem('username', this.user.username);
         }
         if (authState.state === 'signedOut') {
-          console.log('Entrou aki!!');
           this.user = null;
+          localStorage.removeItem('username');
         }
       });
+  }
+
+  ngOnInit() {
+    this.user = {username: localStorage.getItem('username')}
   }
 
   async signOut() {

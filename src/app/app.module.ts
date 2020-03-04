@@ -17,6 +17,7 @@ import { HomePage } from './pages/home/home.page';
 import { NotFoundPage } from './pages/notfound/notfound.page';
 import { LoginPage } from './pages/login/login.page';
 import { SignupPage } from './pages/signup/signup.page';
+import { NoteCreatePage } from './pages/note/note.create.page';
 // components
 import { HeaderComponent } from './components/header/header.component';
 
@@ -27,7 +28,8 @@ import { HeaderComponent } from './components/header/header.component';
     NotFoundPage,
     LoginPage,
     HeaderComponent,
-    SignupPage
+    SignupPage,
+    NoteCreatePage
   ],
   entryComponents: [],
   imports: [

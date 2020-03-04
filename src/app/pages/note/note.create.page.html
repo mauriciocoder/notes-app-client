@@ -1,0 +1,22 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <form [formGroup]="noteCreateForm" (ngSubmit)="onSubmit()">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <strong>Note Create</strong>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <ion-label position="stacked">Content</ion-label>
+              <ion-textarea formControlName="content" rows="10"></ion-textarea>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
