@@ -27,7 +27,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = {username: localStorage.getItem('username')}
+    let username: String = localStorage.getItem('username')
+    if (username) {
+      this.user = {username: username}
+    }
   }
 
   async signOut() {
