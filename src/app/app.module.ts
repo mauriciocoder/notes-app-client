@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Angular
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AmplifyService } from 'aws-amplify-angular';
+import { FileUploadModule } from 'ng2-file-upload';
 // pages
 import { HomePage } from './pages/home/home.page';
 import { NotFoundPage } from './pages/notfound/notfound.page';
@@ -37,7 +38,8 @@ import { HeaderComponent } from './components/header/header.component';
     IonicModule.forRoot(), 
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FileUploadModule
   ],
   providers: [
     StatusBar,

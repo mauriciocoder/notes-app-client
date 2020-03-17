@@ -16,6 +16,24 @@
             </ion-item>
           </ion-col>
         </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-item>
+              <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
+              <!--
+              <button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()"
+                [disabled]="!uploader.getNotUploadedItems().length">
+                Upload
+              </button>
+              -->
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button color="primary" type="submit">Confirm</ion-button>
+          </ion-col>
+        </ion-row>
       </ion-grid>
     </form>
   </div>
