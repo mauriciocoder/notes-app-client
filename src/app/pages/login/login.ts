@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from './../../components/header/header.component';
+import { HeaderComponent } from '../../components/header/header';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Auth } from 'aws-amplify';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  templateUrl: './login.html',
+  styleUrls: ['./login.scss'],
 })
 export class LoginPage implements OnInit {
   loginForm: FormGroup;
@@ -38,7 +37,7 @@ export class LoginPage implements OnInit {
       try {
         await Auth.signIn(email, password);
         loading.dismiss();
-        this.router.navigate(['/']);
+        this.router.navigate(['/note/list']);
       } catch (e) {
         alert(e.message);
       }

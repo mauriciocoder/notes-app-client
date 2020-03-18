@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from './../../components/header/header.component';
+import { HeaderComponent } from '../../components/header/header';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Auth } from 'aws-amplify';
 import { Router } from '@angular/router';
@@ -7,8 +7,8 @@ import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: './signup.page.html',
-  styleUrls: ['./signup.page.scss'],
+  templateUrl: './signup.html',
+  styleUrls: ['./signup.scss'],
 })
 export class SignupPage implements OnInit {
   signupForm: FormGroup;
@@ -71,7 +71,7 @@ export class SignupPage implements OnInit {
         await Auth.confirmSignUp(email, confirmationCode);
         await Auth.signIn(email, password);
         loading.dismiss();
-        this.router.navigate(['/']);
+        this.router.navigate(['/note/list']);
       } catch (e) {
         alert(e.message);
       }

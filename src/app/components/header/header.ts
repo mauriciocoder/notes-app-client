@@ -5,8 +5,8 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  templateUrl: './header.html',
+  styleUrls: ['./header.scss'],
 })
 export class HeaderComponent implements OnInit {
   user: any
@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
           localStorage.setItem('username', this.user.username);
         }
         if (authState.state === 'signedOut') {
+          console.log('signedOut!!!')
           this.user = null;
           localStorage.removeItem('username');
         }

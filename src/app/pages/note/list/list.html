@@ -1,0 +1,14 @@
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <div>
+    <strong>Your Notes</strong>
+    <ion-list>
+      <ion-item *ngFor="let note of notes" button (click)='update(note)'>
+        <ion-label>
+          <h4>{{ note.content }}</h4>
+          <h6>{{ note.createdAt | date:'medium' }}</h6>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
