@@ -30,27 +30,30 @@ export class NoteCreatePage implements OnInit {
 
   async onSubmit() {
     console.log('onSubmit')
-    if (this.noteCreateForm.valid && this.uploader.getNotUploadedItems().length) {
+    if (this.noteCreateForm.valid) {
       const loading = await this.loadingController.create({
         message: 'Please wait...'
       });
-      loading.present();
-      const filename = Date.now() + '-' + this.fileItem.file.name
-      console.log('filename = ', filename)
-      const stored: any = await Storage.vault.put(filename, this.fileItem.file.rawFile, {
-        contentType: this.fileItem.file.type
-      });
-      let attachment = stored.key;
-      console.log('attachment = ', attachment)
-      let content = this.noteCreateForm.value.content;
       try {
+        loading.present();
+        let attachment = '';
+        if (this.uploader.getNotUploadedItems().length) {
+          const filename = Date.now() + '-' + this.fileItem.file.name
+          console.log('filename = ', filename)
+          const stored: any = await Storage.vault.put(filename, this.fileItem.file.rawFile, {
+            contentType: this.fileItem.file.type
+          });
+          attachment = stored.key;
+        }
+        let content = this.noteCreateForm.value.content; 
         await API.post("notes", "/notes", {
           body: { content: content, attachment: attachment }
         });
-        loading.dismiss();
         this.router.navigate(['/note/list']);
       } catch (e) {
         alert(e.message);
+      } finally {
+        loading.dismiss();
       }
     }
   }
